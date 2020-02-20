@@ -188,6 +188,15 @@ h1 {
 .card__link:hover {
     color: #f53277;
 }
+.card__icon {
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    display: block;
+    margin: 3px 0 0 5px;
+}
 .card__tags {
     display: flex;
     justify-content: flex-end;

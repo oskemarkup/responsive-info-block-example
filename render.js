@@ -44,6 +44,7 @@ const data = [
         photos: photos,
         morePhotosCount: 3,
         title: 'Полностью заполненный блок',
+        titleIcon: '6',
         special: true,
         afterTitle: ['5', '6'],
         address: 'Адрес или иная информация',
