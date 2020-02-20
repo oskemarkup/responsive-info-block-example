@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Адаптивная информационная карточка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="renderHello()">
+
+<div class="container">
+    <h1>Примеры карточек</h1>
+    <div id="target"></div>
+</div>
+
+<script id="template" type="x-tmpl-mustache">
+
+    <div class="card">
+        <div class="card__left">
+            <div class="card__main">
+                {{#singlePhoto}}
+                    <a href="{{moreLink}}" class="card__single-photo">
+                        <img width="343" height="260" src="{{singlePhoto}}" alt="{{title}}" class="card__single-image">
+                    </a>
+                {{/singlePhoto}}
+                {{#photos.length}}
+                    <a class="card__gallery card__photos" href="{{moreLink}}">
+                        {{#photos}}
+                            <div class="card__photo">
+                                <div class="card__photo-block">
+                                    <img width="343" height="260" src="{{image}}" class="card__photo-img" alt="{{title}}">
+                                    {{#last}}
+                                        <div class="card__photo-more">Еще {{morePhotosCount}} фото</div>
+                                    {{/last}}
+                                </div>
+                            </div>
+                        {{/photos}}
+                        {{#special}}
+                            <span class="card__special">Метка на карточке</span>
+                        {{/special}}
+                    </a>
+                {{/photos.length}}
+                <div class="card__info">
+                    <div class="card__header">
+                        <div class="card__title">
+                            <a class="card__link" href="https://massagexxx.ru/moscow/v-shokolade/">{{title}}</a>
+                        </div>
+                        {{#afterTitle.length}}
+                            <div class="card__tags">
+                                {{#afterTitle}}
+                                    <div class="card__tag icon icon--{{.}}"></div>
+                                {{/afterTitle}}
+                            </div>
+                        {{/afterTitle.length}}
+                    </div>
+                    <p class="card__address">{{address}}</p>
+                    <div class="card__phone-and-socials">
+                        <a class="card__phone" href="{{phone}}">{{phone}}</a>
+                        {{#social.length}}
+                            <div class="card__socials">
+                                {{#social}}
+                                    <div class="card__social icon icon--{{.}}"></div>
+                                {{/social}}
+                            </div>
+                        {{/social.length}}
+                    </div>
+                    {{#shortDescription}}
+                        <p class="card__pricing">{{shortDescription}}</p>
+                    {{/shortDescription}}
+                    {{#items.length}}
+                        <a class="card__masters card__gallery" href="{{itemsLink}}">
+                            {{#items}}
+                                <div class="card__master">
+                                    <div class="card__master-block">
+                                        <img width="300" height="450" src="{{image}}" class="card__master-img" alt="{{title}}">
+                                        <div class="card__master-name">{{title}}</div>
+                                        {{#last}}
+                                            <div class="card__master-more">+{{moreItemsCount}}</div>
+                                        {{/last}}
+                                    </div>
+                                </div>
+                            {{/items}}
+                        </a>
+                    {{/items.length}}
+                </div>
+            </div>
+            {{#description}}
+                <div class="card__description">
+                    <p>{{description}}</p>
+                </div>
+            {{/description}}
+        </div>
+        <div class="card__meta">
+            {{#features.length}}
+                <div class="card__features">
+                    {{#features}}
+                        <div class="card__feature icon icon--{{.}}"></div>
+                    {{/features}}
+                </div>
+            {{/features.length}}
+            <div class="card__spacer"></div>
+            <a class="card__more" href="{{moreLink}}">Подробнее</a>
+        </div>
+    </div>
+</script>
+
+<script src="https://unpkg.com/mustache@latest"></script>
+<script src="render.js"></script>
+
+</body>
+</html>
